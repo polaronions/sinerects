@@ -1,1 +1,45 @@
+<html>
 
+<head>
+  <title>sinerects</title>
+  <style>
+    svg#svg1 {
+      border: 1px solid black;
+    }
+
+    #svg1 rect {
+      fill: black;
+      y: 0;
+      width: 10;
+      height: 00;
+      animation: mymove 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes mymove {
+      from {
+        height: 0;
+      }
+
+      to {
+        height: 100;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <svg id="svg1" width="100px" height="100px" style>
+    <rect x="0" />
+    <rect x="10" style="animation-delay: 0.5s"/>
+    <rect x="20" style="animation-delay: 1s"/>
+    <rect x="30" style="animation-delay: 1.5s"/>
+    <rect x="40" style="animation-delay: 2s"/>
+    <rect x="50" style="animation-delay: 2.5s"/>
+    <rect x="60" style="animation-delay: 3s"/>
+    <rect x="70" style="animation-delay: 3.5s"/>
+    <rect x="80" style="animation-delay: 4s"/>
+    <rect x="90" style="animation-delay: 4.5s"/>
+  </svg>
+</body>
+
+</html>
