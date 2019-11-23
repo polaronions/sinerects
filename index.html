@@ -3,15 +3,17 @@
 <head>
   <title>sinerects</title>
   <style>
+    svg#svg2 {
+      border: 1px solid blue;
+    }
+
     svg#svg1 {
       border: 1px solid black;
     }
 
     #svg1 rect {
       fill: black;
-      y: 0;
       width: 10;
-      height: 00;
       animation: mymove 2s ease-in-out infinite alternate;
     }
 
@@ -25,21 +27,52 @@
       }
     }
   </style>
+  <script>
+    function pageLog(x) {
+      document.getElementById("pageLog").innerHTML = x + "<br />" + document.getElementById("pageLog").innerHTML
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      svg2 = document.getElementById("svg2");
+      pageLog(svg2.clientWidth);
+      newRect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      newRect.setAttribute("width", "10");
+
+
+      newRect.animate([{
+        height: "0px"
+      }, {
+        height: "100px"
+      }], {
+        duration: 2000,
+        easing: "ease-in-out",
+        direction: "alternate",
+        iterations: Infinity
+      })
+
+      svg2.appendChild(newRect);
+
+      pageLog("here")
+    })
+  </script>
 </head>
 
 <body>
-  <svg id="svg1" width="100px" height="100px" style>
-    <rect x="0" />
-    <rect x="10" style="animation-delay: 0.5s"/>
-    <rect x="20" style="animation-delay: 1s"/>
-    <rect x="30" style="animation-delay: 1.5s"/>
-    <rect x="40" style="animation-delay: 2s"/>
-    <rect x="50" style="animation-delay: 2.5s"/>
-    <rect x="60" style="animation-delay: 3s"/>
-    <rect x="70" style="animation-delay: 3.5s"/>
-    <rect x="80" style="animation-delay: 4s"/>
-    <rect x="90" style="animation-delay: 4.5s"/>
+  <svg id="svg2" width="100px" height="100px">
   </svg>
+  <svg id="svg1" width="100px" height="100px">
+    <rect x="0" />
+    <rect x="10" style="animation-delay: 0.5s" />
+    <rect x="20" style="animation-delay: 1s" />
+    <rect x="30" style="animation-delay: 1.5s" />
+    <rect x="40" style="animation-delay: 2s" />
+    <rect x="50" style="animation-delay: 2.5s" />
+    <rect x="60" style="animation-delay: 3s" />
+    <rect x="70" style="animation-delay: 3.5s" />
+    <rect x="80" style="animation-delay: 4s" />
+    <rect x="90" style="animation-delay: 4.5s" />
+  </svg>
+  <div id="pageLog"></div>
 </body>
 
 </html>
